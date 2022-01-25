@@ -1,10 +1,17 @@
+import React, { useEffect, useState } from 'react';
 import '../styles/App.css';
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
+import Api from "../services/Api";
 
 function App() {
+  const [characters, setCharacters] = useState([]);
+    useEffect(() => {
+      Api().then(data => {setCharacters(data); });
+}, []);
+
   return (
-    <body>
+    <>
       <header>
         <h1>Harry Potter</h1>
       </header>
@@ -12,7 +19,7 @@ function App() {
        <Filters/>
        <CharacterList/>
       </main>
-      </body>
+      </>
       );
 }
 

@@ -1,8 +1,8 @@
-function CharacterList (props) {
+function CharacterDetail (props) {
     return (
         <></>
 
     );
 }
 
-export default CharacterList;
+export default CharacterDetail;
