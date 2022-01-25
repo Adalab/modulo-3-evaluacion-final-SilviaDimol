@@ -1,11 +1,19 @@
 import '../styles/App.css';
+import Filters from "./Filters";
+import CharacterList from "./CharacterList";
 
 function App() {
   return (
-    <div>
-      <h1>Hola mundo</h1>
-    </div>
-  );
+    <body>
+      <header>
+        <h1>Harry Potter</h1>
+      </header>
+      <main>
+       <Filters/>
+       <CharacterList/>
+      </main>
+      </body>
+      );
 }
 
 export default App;
