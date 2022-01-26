@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
+import { Route, Switch, useRouteMatch, Link} from "react-router-dom";
 import "../styles/App.css";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import Header from "./Header";
+import CharacterDetail from "./CharaterDetail";
+
 import Api from "../services/Api";
 
 function App() {
@@ -34,12 +37,22 @@ function App() {
     return character.house === filterHouse;
     });
   
+const renderCharacterDetail = (props) => {
+const routeName = props.match.params.characterName;
+const foundCharacter = characters.find((character) => character.name === routeName);
+return <CharacterDetail character={foundCharacter}/>;
+};
 
   return (
     <>
-      <Header />
+    <Switch>
+      <Route exact path="/">
+      <Header/>
       <Filters handleFilter={handleFilter} filterName={filterName} filterHouse={filterHouse}/>
       <CharacterList characters={filteredCharacters} />
+      </Route>
+      <Route path="/character/:characterName" render={renderCharacterDetail}/>
+      </Switch>
     </>
   );
 }

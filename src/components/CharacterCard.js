@@ -1,8 +1,10 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 function CharacterCard(props) {
   return (
-    <li className="card">
+    <NavLink to={`/user/${props.character.name}`}>
+    <li className="card" >
       <img
         alt="cardImage"
         src={props.character.image}
@@ -12,6 +14,7 @@ function CharacterCard(props) {
       <h4 className="card__title">{props.character.name}</h4>
       <p className="card__description">{props.character.species}</p>
     </li>
+    </NavLink>
   );
 }
 
