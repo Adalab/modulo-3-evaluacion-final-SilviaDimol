@@ -7,8 +7,11 @@ const Api = () => {
         return {
             image: character.image,
             name: character.name,
-            species: character.secies,
-            house: character.house
+            species: character.species,
+            house: character.house,
+            alternate_names: character.alternate_names,
+            alive: character.alive,
+            gender: character.gender
         };
       }));
     });

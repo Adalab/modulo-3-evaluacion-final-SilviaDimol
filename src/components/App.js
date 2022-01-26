@@ -17,7 +17,7 @@ function App() {
       </header>
       <main>
        <Filters/>
-       <CharacterList/>
+       <CharacterList characters={characters}/>
       </main>
       </>
       );
