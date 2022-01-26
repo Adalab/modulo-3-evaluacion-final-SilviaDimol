@@ -8,26 +8,37 @@ import Api from "../services/Api";
 function App() {
   const [characters, setCharacters] = useState([]);
   const [filterName, setFilterName] = useState("");
-  const [filterHouse, setFilterHouse] = useState("");
+  const [filterHouse, setFilterHouse] = useState("Gryffindor");
 
+  //Fetch
   useEffect(() => {
-    Api().then((data) => {
+    Api(filterHouse).then((data) => {
       setCharacters(data);
     });
-  }, []);
+  }, [filterHouse]);
 
+  //Función manejadora de los filtros
   const handleFilter = (data) => {
-    setFilterName(data)
+    if (data.key === "name"){
+      setFilterName(data.value);
+    } else if (data.key === "house") {
+      setFilterHouse (data.value);
+    }
   };
 
-  const filteredCharacters = characters.filter((character) => {
+  const filteredCharacters = characters
+  .filter((character) => {
     return character.name.toLowerCase().includes(filterName.toLowerCase());
-  });
+  })
+    .filter((character) => {
+    return character.house === filterHouse;
+    });
+  
 
   return (
     <>
       <Header />
-      <Filters handleFilter={handleFilter} filterName={filterName}/>
+      <Filters handleFilter={handleFilter} filterName={filterName} filterHouse={filterHouse}/>
       <CharacterList characters={filteredCharacters} />
     </>
   );

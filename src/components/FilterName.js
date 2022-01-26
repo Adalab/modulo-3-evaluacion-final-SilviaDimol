@@ -1,7 +1,10 @@
 function FilterName(props) {
   const handleInput = (ev) => {
-    props.handleFilter(ev.currentTarget.value)
-  }
+    props.handleFilter({
+      key:"name",
+      value: ev.currentTarget.value,
+  });
+};
 
   return (
     <>
@@ -13,8 +16,8 @@ function FilterName(props) {
       type="text" 
       name="name" 
       id="name"
-      onChange={handleInput}
       value={props.filterName}
+      onChange={handleInput}
       />
     </>
   );

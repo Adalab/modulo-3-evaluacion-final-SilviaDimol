@@ -5,7 +5,7 @@ function Filters (props) {
   return (
     <>
       <FilterName handleFilter={props.handleFilter} filterName={props.filterName}/>
-      <FilterHouse />
+      <FilterHouse handleFilter={props.handleFilter} filterHouse={props.filterHouse}/>
     </>
   );
 }
