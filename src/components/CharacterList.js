@@ -1,15 +1,16 @@
 import React from "react";
-import CharacterCard from './CharacterCard';
+import CharacterCard from "./CharacterCard";
 
-function CharacterList (props) {
-    const characterElements = props.characters.map((character, index) => {
-return <li key={index}><CharacterCard character={character}/></li>
-    });
-
-
+function CharacterList(props) {
+  const characterElements = props.characters.map((character, index) => {
     return (
-      <ul className="cards">{characterElements}</ul>
+      <li key={index}>
+        <CharacterCard character={character} />
+      </li>
     );
+  });
+
+  return <ul className="cards">{characterElements}</ul>;
 }
 
 export default CharacterList;

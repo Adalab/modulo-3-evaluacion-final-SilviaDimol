@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch, useRouteMatch, Link} from "react-router-dom";
+import { Route, Switch, useRouteMatch, NavLink } from "react-router-dom";
 import "../styles/App.css";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
 import Header from "./Header";
 import CharacterDetail from "./CharaterDetail";
-
 import Api from "../services/Api";
 
 function App() {
