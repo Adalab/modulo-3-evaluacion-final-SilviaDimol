@@ -21,38 +21,42 @@ function App() {
 
   //Función manejadora de los filtros
   const handleFilter = (data) => {
-    if (data.key === "name"){
+    if (data.key === "name") {
       setFilterName(data.value);
     } else if (data.key === "house") {
-      setFilterHouse (data.value);
+      setFilterHouse(data.value);
     }
   };
 
   const filteredCharacters = characters
-  .filter((character) => {
-    return character.name.toLowerCase().includes(filterName.toLowerCase());
-  })
     .filter((character) => {
-    return character.house === filterHouse;
+      return character.name.toLowerCase().includes(filterName.toLowerCase());
+    })
+    .filter((character) => {
+      return character.house === filterHouse;
     });
-  
-const renderCharacterDetail = (props) => {
-const routeName = props.match.params.characterName;
-const foundCharacter = characters.find((character) => character.name === routeName);
-return <CharacterDetail character={foundCharacter}/>;
-};
+
+  const renderCharacterDetail = (props) => {
+    const routeName = props.match.params.characterName;
+    const foundCharacter = characters.find(
+      (character) => character.name === routeName
+    );
+    return <CharacterDetail character={foundCharacter} />;
+  };
 
   return (
-    <>
     <Switch>
       <Route exact path="/">
-      <Header/>
-      <Filters handleFilter={handleFilter} filterName={filterName} filterHouse={filterHouse}/>
-      <CharacterList characters={filteredCharacters} />
+        <Header />
+        <Filters
+          handleFilter={handleFilter}
+          filterName={filterName}
+          filterHouse={filterHouse}
+        />
+        <CharacterList characters={filteredCharacters} />
       </Route>
-      <Route path="/character/:characterName" render={renderCharacterDetail}/>
-      </Switch>
-    </>
+      <Route path="/character/:characterName" render={renderCharacterDetail} />
+    </Switch>
   );
 }
 

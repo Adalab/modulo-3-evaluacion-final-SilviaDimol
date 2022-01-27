@@ -6,20 +6,24 @@ function FilterName(props) {
   });
 };
 
+const handleSubmit = ev => {
+  ev.preventDefault();
+};
+
   return (
-    <>
+    <form onSubmit={handleSubmit}>
       <label className="form__filterName" htmlFor="name">
       Busca por personaje:
       </label>
       <input 
-      className="form__input-text" 
+      className="inputName" 
       type="text" 
       name="name" 
       id="name"
       value={props.filterName}
       onChange={handleInput}
       />
-    </>
+    </form>
   );
 }
 

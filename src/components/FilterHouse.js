@@ -8,10 +8,10 @@ const handleHouse = (ev) => {
 
   return (
     <>
-      <label className="form__filterHouse" htmlFor="house">
+      <label className="textHouse" htmlFor="house">
         Selecciona la casa:
       </label>
-      <select className="form__input-text" name="house" id="house" onChange={handleHouse} value={props.filterHouse}>
+      <select className="inputHouse" name="house" id="house" onChange={handleHouse} value={props.filterHouse}>
         <option value="Gryffindor">Gryffindor</option>
         <option value="Hufflepuff">Hufflepuff</option>
         <option value="Ravenclaw">Ravenclaw</option>
