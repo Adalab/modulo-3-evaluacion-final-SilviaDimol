@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Route, Switch, useRouteMatch, NavLink } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import "../styles/App.css";
 import Filters from "./Filters";
 import CharacterList from "./CharacterList";
